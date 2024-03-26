@@ -11,7 +11,7 @@ volatile int16_t motor_speed = 0;   	// Measured motor speed
 volatile int8_t adc_value = 0;      	// ADC measured motor current
 volatile int16_t error = 0;         	// Speed error signal
 volatile uint8_t Kp = 1;            	// Proportional gain
-volatile uint8_t Ki = 1;            	// Integral gain
+volatile uint8_t Ki = 0;            	// Integral gain
 
 // Sets up the entire motor drive system
 void motor_init(void) {
@@ -159,17 +159,31 @@ void PI_update(void) {
      */
     
     /// TODO: calculate error signal and write to "error" variable
-    
+  
+		motor_speed = motor_speed / 2;
+	
+		error = target_rpm - motor_speed;
+	
     /* Hint: Remember that your calculated motor speed may not be directly in RPM!
      *       You will need to convert the target or encoder speeds to the same units.
      *       I recommend converting to whatever units result in larger values, gives
      *       more resolution.
      */
     
-    
     /// TODO: Calculate integral portion of PI controller, write to "error_integral" variable
     
+		error_integral = error_integral + (error * duty_cycle);
+		
     /// TODO: Clamp the value of the integral to a limited positive range
+		
+		if (error_integral <= 0)
+		{
+			error_integral = 0;
+		}
+		else if (error_integral >= 3200)
+		{
+			error_integral = 3200;
+		}
     
     /* Hint: The value clamp is needed to prevent excessive "windup" in the integral.
      *       You'll read more about this for the post-lab. The exact value is arbitrary
@@ -178,8 +192,8 @@ void PI_update(void) {
      */
     
     /// TODO: Calculate proportional portion, add integral and write to "output" variable
-    
-    int16_t output = 0; // Change this!
+    		
+    int16_t output = Kp * error + Ki * error_integral; // Change this!
     
     /* Because the calculated values for the PI controller are significantly larger than 
      * the allowable range for duty cycle, you'll need to divide the result down into 
@@ -199,8 +213,19 @@ void PI_update(void) {
 
      /// TODO: Divide the output into the proper range for output adjustment
      
+		output = output >> 5;
+		 
      /// TODO: Clamp the output value between 0 and 100 
     
+		if (output >= 100)
+		{
+			output = 100;
+		}
+		else if (output <= 0)
+		{
+			output = 0;
+		}
+		
     pwm_setDutyCycle(output);
     duty_cycle = output;            // For debug viewing
 

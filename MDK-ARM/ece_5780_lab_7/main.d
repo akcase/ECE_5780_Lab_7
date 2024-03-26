@@ -1,8 +1,6 @@
-ece_5780_lab_7/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
-  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal.h \
-  ..\Core\Inc\stm32f0xx_hal_conf.h \
-  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_rcc.h \
-  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_def.h \
+ece_5780_lab_7/main.o: ..\Core\Src\main.c \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
   ..\Drivers\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F0xx\Include\stm32f072xb.h \
   ..\Drivers\CMSIS\Include\core_cm0.h \
@@ -13,6 +11,10 @@ ece_5780_lab_7/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h \
   C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h \
   ..\Drivers\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h \
+  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal.h \
+  ..\Core\Inc\stm32f0xx_hal_conf.h \
+  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_rcc.h \
+  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_def.h \
   ..\Drivers\STM32F0xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stddef.h \
   ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_rcc_ex.h \
@@ -27,4 +29,5 @@ ece_5780_lab_7/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_i2c.h \
   ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_i2c_ex.h \
   ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_pwr.h \
-  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_pwr_ex.h
+  ..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_pwr_ex.h \
+  ..\Core\Inc\motor.h

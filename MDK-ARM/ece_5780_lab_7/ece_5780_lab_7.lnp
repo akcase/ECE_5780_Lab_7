@@ -3,6 +3,7 @@
 "ece_5780_lab_7\main.o"
 "ece_5780_lab_7\stm32f0xx_it.o"
 "ece_5780_lab_7\stm32f0xx_hal_msp.o"
+"ece_5780_lab_7\motor.o"
 "ece_5780_lab_7\stm32f0xx_hal_tim.o"
 "ece_5780_lab_7\stm32f0xx_hal_tim_ex.o"
 "ece_5780_lab_7\stm32f0xx_hal_rcc.o"
